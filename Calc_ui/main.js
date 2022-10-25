@@ -1,4 +1,4 @@
-import { numbers, btnClear, backspace, operators, screen, equal } from '../view.js';
+import { numbers, btnClear, backspace, operators, screen, equal } from '../Calc_ui/view.js';
 
 
 let hasOperator = false;

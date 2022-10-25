@@ -1,4 +1,4 @@
-import { numbers, btnClear, backspace, operators, screen, equal } from './view.js';
+import { numbers, btnClear, backspace, operators, screen, equal } from '/Strada/Calc_ui/view.js';
 
 // '../Calc_ui/view.js'
 

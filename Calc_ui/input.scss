@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    background-color: black;
+    width: 364px;
+    height: 581px;
+    margin-top: 20px;
+    padding: 21px 20px 45px;
+}
+
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.screen {
+    width: 324px;
+    height: 96px;
+    margin-bottom: 16px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 96px;
+    line-height: 96px;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+%button-shared {
+    height: 72px;
+    width: 69px;
+    border-radius: 24px;
+    color: white;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.keypads {
+    display: grid;
+    grid-template-areas: "A A A   C" "B B B    C";
+}
+
+.numbers {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 69px 69px 69px;
+    grid-area: B;
+}
+
+.num {
+    @extend %button-shared;
+    background: rgba(46, 47, 56, 1);
+    padding-top: 15px;
+}
+
+.zero {
+    width: 238px;
+}
+
+.delete-pads {
+    display: flex;
+    grid-area: A;
+}
+
+.clear {
+    @extend %button-shared;
+    width: 153px;
+    background: rgba(78, 80, 95, 1);
+    margin-bottom: 16px;
+    margin-right: 16px;
+    padding-top: 15px;
+}
+
+.backspace {
+    @extend %button-shared;
+    background: rgba(46, 47, 56, 1);
+    padding-top: 15px;
+}
+
+.operators {
+    grid-area: C;
+    display: grid;
+    gap: 16px;
+}
+
+.operator {
+    @extend %button-shared;
+    background: rgba(75, 94, 252, 1);
+    margin-left: 12px;
+    padding-top: 15px;
+}

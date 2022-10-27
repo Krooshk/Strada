@@ -13,30 +13,47 @@
     <div class="wrapper">
         <div class="container">
             <h2>HIGH</h2>
-            <label class="input-text">
-				<input type="text" placeholder="Добавить важных дел">
-			</label>
-            <label class="checkbox">
-				<input type="checkbox" class="checkbox-round" name="happy1" value="yes">Вот вам и супер интересная тема.
-				Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести некоторые вещи
-				куда-то за пределы основной программы.
-			</label>
-            <label class="checkbox">
-				<input type="checkbox" class="checkbox-round" name="happy2" value="yes">Сверстать этот TODO list
-			</label>
-            <label class="checkbox">
-				<input type="checkbox" class="checkbox-round" name="happy3" value="yes">Начать делать
-				задачу
-			</label>
+            <form>
+                <label class="input-text">
+					<input type="text" placeholder="Добавить важных дел"><img src="./assets/close-icon.svg" alt="plus">
+				</label>
+                <div>
+                    <label class="checkbox">
+						<input type="checkbox" class="checkbox-round" name="happy1" value="yes">Вот вам и супер
+						интересная
+						тема.
+						Вы наверняка заметили что ваши файлы с кодом становятся все объемнее, что хочется вынести
+						некоторые
+						вещи
+						куда-то за пределы основной программы.
+						<img src="./assets/close-icon-45.svg" alt="close">
+					</label>
+                    <label class="checkbox">
+						<input type="checkbox" class="checkbox-round" name="happy2" value="yes">Сверстать этот TODO
+						list<img src="./assets/close-icon-45.svg" alt="close">
+					</label>
+                    <label class="checkbox">
+						<input type="checkbox" class="checkbox-round" name="happy3" value="yes">Начать делать<img
+							src="./assets/close-icon-45.svg" alt="close">
+						задачу
+					</label>
+                </div>
+            </form>
             <h2>LOW</h2>
-            <label class="input-text">
-				<input type="text" placeholder="Добавить  ">
-			</label>
-            <label class="checkbox">
-				<input type="checkbox" class="checkbox-round" name="happy5" value="yes">Посмотреть ютубчик
-			</label>
+            <form action="get">
+                <label class="input-text">
+					<input type="text" placeholder="Добавить  "><img src="./assets/close-icon.svg" alt="plus">
+				</label>
+                <div>
+                    <label class="checkbox">
+						<input type="checkbox" class="checkbox-round" name="happy5" value="yes">Посмотреть ютубчик<img
+							src="./assets/close-icon-45.svg" alt="close">
+					</label>
+                </div>
+            </form>
         </div>
     </div>
+    <script src="./main.js"></script>
 </body>
 
 </html>

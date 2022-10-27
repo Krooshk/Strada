@@ -177,7 +177,15 @@ label {
     position: relative;
 }
 
-label:before {
+label img {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 5px;
+}
+
+
+/* label:before {
     content: "";
     position: absolute;
     right: 10px;
@@ -190,7 +198,7 @@ label:before {
 label.checkbox:before {
     top: 10px;
     background: url("./assets/close-icon-45.svg") no-repeat;
-}
+} */
 
 h2 {
     font-family: 'Roboto';

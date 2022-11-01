@@ -1,126 +1,272 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-    background-color: azure;
-}
-
-.container {
-    width: 621px;
-    height: 462px;
-    background-color: white;
-    margin: 40px auto 0px;
-    padding-top: 14px;
-}
-
-.wrapper {
-    width: 600px;
-    height: 435px;
-    margin: auto;
-    border: 1px solid black;
-}
-
-.input {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 45px;
-    border-bottom: 1px solid black;
-    padding: 0px;
-    margin: 0px;
-    position: relative;
-}
-
-.input img {
-    position: absolute;
-    top: 7px;
-    right: 17px;
-}
-
-input {
-    outline: none;
-    border-style: none;
-    width: 90%;
-    padding: 11px 0px 0px 16px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    color: #696969;
-}
-
-.two-screen {
-    display: flex;
-    flex-direction: row;
-}
-
-.left-screen {
-    width: 300px;
-    height: 388px;
-    position: relative;
-}
-
-.right-screen {
-    width: 300px;
-}
-
-.main-section {
-    border-right: 1px solid black;
-    height: 100%;
-}
-
-.tabs {
-    width: 100%;
-    height: 44px;
-    border-top: 1px solid black;
-    position: absolute;
-    bottom: 0px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.tab {
-    text-align: center;
-    padding-top: 12px;
-    border-right: 1px solid black;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-}
-
-.locations {
-    height: 307px;
-    border-top: 1px solid black;
-    padding: 35px 0px 0px 18px;
-    overflow: auto;
-}
-
-p {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    margin: 0px 0px 15px 0px;
-}
-
-h2 {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    margin-top: 33px;
-    margin-left: 18px;
-}
-
-.now {
-    background-color: black;
-    color: white;
-}
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: azure;
+        overflow: hidden;
+        padding-top: 55px;
+    }
+    
+    .container {
+        width: 621px;
+        height: 462px;
+        background-color: white;
+        margin: 0px auto 0px;
+        padding-top: 14px;
+    }
+    
+    .wrapper {
+        width: 600px;
+        height: 435px;
+        margin: auto;
+        border: 1px solid black;
+    }
+    
+    .input {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 45px;
+        border-bottom: 1px solid black;
+        padding: 0px;
+        margin: 0px;
+        position: relative;
+    }
+    
+    .input img {
+        position: absolute;
+        top: 7px;
+        right: 17px;
+    }
+    
+    input {
+        outline: none;
+        border-style: none;
+        width: 90%;
+        padding: 11px 0px 0px 16px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        color: #696969;
+    }
+    
+    .two-screen {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .left-screen {
+        width: 300px;
+        height: 388px;
+        position: relative;
+    }
+    
+    .right-screen {
+        width: 300px;
+    }
+    
+    .main-section {
+        border-right: 1px solid black;
+        height: 100%;
+    }
+    
+    .tabs {
+        width: 100%;
+        height: 44px;
+        border-top: 1px solid black;
+        position: absolute;
+        bottom: 0px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .tab {
+        text-align: center;
+        padding-top: 12px;
+        border-right: 1px solid black;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+    }
+    
+    .locations {
+        height: 307px;
+        border-top: 1px solid black;
+        padding: 35px 0px 0px 18px;
+        overflow: auto;
+    }
+    
+    p {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        margin: 0px 0px 15px 0px;
+    }
+    
+    h2 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        margin-top: 33px;
+        margin-left: 18px;
+    }
+    
+    .tab-item {
+        display: none;
+    }
+    
+    .tab-item:after {
+        content: "";
+        height: 22px;
+        width: 33.333%;
+        position: absolute;
+        bottom: 0px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        padding: 11px 0px;
+        z-index: 200;
+    }
+    
+    .tab-item:nth-child(1)::after {
+        content: "Now";
+        left: 0px;
+        background-color: black;
+    }
+    
+    .tab-item:nth-child(2)::after {
+        content: "Details";
+        left: 33.333%;
+        background-color: black;
+    }
+    
+    .tab-item:nth-child(3)::after {
+        content: "Forecast";
+        right: 0px;
+        background-color: black;
+    }
+    
+    .tab-item:target {
+        display: block;
+    }
+    
+    a :active,
+    a:hover,
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .temperature-tab1 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 70px;
+        line-height: 82px;
+        padding: 20px 0px 0px 23px;
+    }
+    
+    .icon-weather {
+        position: absolute;
+        top: 143px;
+        left: 112px;
+    }
+    
+    .city-tab1 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        position: absolute;
+        top: 300px;
+        left: 12px;
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+    }
+    
+    #tab-item2 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+    }
+    
+    .city-tab2,
+    .city-tab3 {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28px;
+        padding: 33px 0px 42px 17px;
+    }
+    
+    .city-tab3 {
+        padding-bottom: 7px;
+    }
+    
+    .weather-info {
+        padding-left: 15px;
+    }
+    
+    .weather-info div {
+        margin-bottom: 15px;
+    }
+    
+    .day-block {
+        width: 265px;
+        height: 120px;
+        border: 1px solid black;
+        margin: 0 auto 9px;
+        display: grid;
+        padding: 6px 10px 13px 10px;
+        grid-template-columns: 60% 40%;
+        justify-content: space-between;
+    }
+    
+    .time {
+        justify-self: end;
+    }
+    
+    .parameters {
+        align-self: end;
+    }
+    
+    .mini-icon {
+        justify-self: end;
+        align-self: end;
+    }
+    
+    .day-block div {
+        font-size: 18px;
+    }
+    
+    .day-block div p {
+        font-size: 18px;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+    
+    #tab-item3 {
+        font-size: 18px;
+        height: 345px;
+        overflow: auto;
+    }

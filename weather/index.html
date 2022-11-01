@@ -16,15 +16,64 @@
             <div class="two-screen">
                 <div class="left-screen">
                     <div class="main-section">
-                        <div class="tab-item">01</div>
-                        <div class="tab-item">02</div>
-                        <div class="tab-item">03</div>
+                        <div id="tab-item1" class="tab-item">
+                            <div class="temperature-tab1">14°</div>
+                            <div class="icon-weather"><img src="./assets/cloud.svg" alt="cloud"></div>
+                            <div class="city-tab1">
+                                <div>Actobe</div>
+                                <img src="./assets/Shape.svg" alt="shape">
+                            </div>
+                        </div>
+                        <div id="tab-item2" class="tab-item">
+                            <div class="city-tab2">Actobe</div>
+                            <div class="weather-info">
+                                <div class="temperature-tab2">Temperature:14°</div>
+                                <div class="feel-like-tab2">Feels like: 10°</div>
+                                <div class="weather-tab2">Weather: Clouds</div>
+                                <div class="sunrise-tab2">Sunrise: 03:21</div>
+                                <div class="sunset-tab2">Sunset: 18:54</div>
+                            </div>
+                        </div>
+                        <div id="tab-item3" class="tab-item">
+                            <div class="city-tab3">Actobe</div>
+                            <div class="day-block">
+                                <div class="info date">17 May</div>
+                                <div class="info time">12:00</div>
+                                <div class="info parameters">
+                                    <p>Temperature: 13</p>
+                                    <p>Feels like: 10</p>
+                                </div>
+                                <div class="info mini-icon">
+                                    <p>Rain</p><img src="./assets/mini-icon.svg" alt="rain"></div>
+                            </div>
+                            <div class="day-block">
+                                <div class="info date">17 May</div>
+                                <div class="info time">12:00</div>
+                                <div class="info parameters">
+                                    <p>Temperature: 13</p>
+                                    <p>Feels like: 10</p>
+                                </div>
+                                <div class="info mini-icon">
+                                    <p>Rain</p><img src="./assets/mini-icon.svg" alt="rain"></div>
+                            </div>
+                            <div class="day-block">
+                                <div class="info date">17 May</div>
+                                <div class="info time">12:00</div>
+                                <div class="info parameters">
+                                    <p>Temperature: 13</p>
+                                    <p>Feels like: 10</p>
+                                </div>
+                                <div class="info mini-icon">
+                                    <p>Rain</p><img src="./assets/mini-icon.svg" alt="rain"></div>
+                            </div>
+                        </div>
+
                     </div>
                     <nav>
                         <div class="tabs">
-                            <div class="tab now"><a href="#">Now</a></div>
-                            <div class="tab details">Details</div>
-                            <div class="tab forecast">Forecast</div>
+                            <div class="tab now"><a href="#tab-item1">Now</a></div>
+                            <div class="tab details"><a href="#tab-item2">Details</a></div>
+                            <div class="tab forecast"><a href="#tab-item3">Forecast</a></div>
                         </div>
                     </nav>
                 </div>

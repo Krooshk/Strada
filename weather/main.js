@@ -12,7 +12,7 @@ function sentName(event) {
     if (event.keyCode === 13) {
         const cityName = input.value;
         const apiKey = "111836d36d452866f627599b193d2401";
-        const serverUrl = "http://api.openweathermap.org/data/2.5/weather";
+        const serverUrl = "https://api.openweathermap.org/data/2.5/weather";
         const url = `${serverUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
         let response = fetch(url);
         let json = response.then((response) => response.json());

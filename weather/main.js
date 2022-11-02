@@ -17,10 +17,12 @@ function sentName(event) {
         let response = fetch(url);
         let json = response.then((response) => response.json());
         json.then((result) => {
-            tabNow.ICON.src = `http://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`;
-            tabNow.TEMP.textContent = `${Math.round(result.main.temp)}°`;
-        });
-        tabNow.CITY.textContent = cityName;
-        input.value = "";
+                tabNow.ICON.src = `http://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`;
+                tabNow.TEMP.textContent = `${Math.round(result.main.temp)}°`;
+                tabNow.CITY.textContent = cityName;
+                input.value = "";
+            })
+            .catch(err => alert(err));
+
     }
 }

@@ -14,3 +14,6 @@ export let tabDetails = {
     SUNRISE: document.querySelector('.sunrise-tab2 span'),
     SUNSET: document.querySelector('.sunset-tab2 span')
 };
+
+
+export let tabItem3 = document.querySelector("#tab-item3");

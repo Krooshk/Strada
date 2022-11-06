@@ -276,3 +276,9 @@
         height: 345px;
         overflow: auto;
     }
+    
+    .mini-icon img {
+        width: 31px;
+        padding: 0px;
+        margin: 0px;
+    }

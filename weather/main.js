@@ -1,17 +1,21 @@
 import { INPUT, tabNow, locations, tabDetails, tabItem3 } from '/Strada/weather/view.js';
-let addedLocations = ["Amur", "Samara", "Moscow", "Tokyo"];
+
+let addedLocations = JSON.parse(localStorage.getItem("addedLocations"));
+const currentCity = localStorage.getItem("currentCity") || "Moscow";
+
 const apiKey = "111836d36d452866f627599b193d2401";
 const serverUrl = "https://api.openweathermap.org/data/2.5/weather";
 const serverUrlGeo = "https://api.openweathermap.org/geo/1.0/direct"
 const serverUrlForecast = "https://api.openweathermap.org/data/2.5/forecast";
 
 INPUT.addEventListener("keyup", sentName);
-getInfo("Moscow");
+getInfo(currentCity);
 tabNow.SHAPE.addEventListener("click", () => {
     let name = tabNow.CITY.textContent;
     if (!addedLocations.includes(name)) {
         addedLocations.push(name);
         createCity(name);
+        localStorage.setItem("addedLocations", JSON.stringify(addedLocations));
         console.log(addedLocations);
     }
 });
@@ -35,7 +39,7 @@ function deleteCity() {
     let name = this.closest("p").textContent;
     addedLocations = addedLocations.filter(el => el !== name);
     this.closest("p").remove();
-    console.log(addedLocations);
+    localStorage.setItem("addedLocations", JSON.stringify(addedLocations));
 }
 
 
@@ -56,6 +60,7 @@ function getInfo(cityName) {
             fillDetailsTab(result, cityName);
             fillForecastTab(cityName);
             INPUT.value = "";
+            localStorage.setItem("currentCity", cityName);
         })
         .catch(err => alert(err));
 }
@@ -80,8 +85,6 @@ function fillDetailsTab(res, city) {
 
 function fillForecastTab(city) {
     const urlGeo = `${serverUrlGeo}?q=${city}&appid=${apiKey}&units=metric`
-    let lat;
-    let lon;
     let responseGeo = fetch(urlGeo);
     tabItem3.innerHTML = `<div class="city-tab3">${city}</div>`;
     responseGeo
@@ -101,21 +104,21 @@ function fillForecastTab(city) {
 function forecastProcessing(json) {
 
     for (let i = 0; i < 4; i++) {
-        let date = new Date((json[i].dt - 180 * 60) * 1000).getDate() + " " + new Date(json[i].dt * 1000).toLocaleString('en-US', { month: 'long' });
-        let time = json[i].dt_txt.substr(-8, 5);
-        let temp = Math.round(json[i].main.temp);
-        let feels_like = Math.round(json[i].main.feels_like);
-        let weatherDescription = json[i].weather[0].main;
-        let icon = json[i].weather[0].icon;
-        console.log(json[i]);
-        console.log(json[i].main.temp);
-        createForecastElement(date, time, temp, feels_like, weatherDescription, icon)
+        let options = {
+            date: new Date((json[i].dt - 180 * 60) * 1000).getDate() + " " + new Date(json[i].dt * 1000).toLocaleString('en-US', { month: 'long' }),
+            time: json[i].dt_txt.substr(-8, 5),
+            temp: Math.round(json[i].main.temp),
+            feels_like: Math.round(json[i].main.feels_like),
+            weatherDescription: json[i].weather[0].main,
+            icon: json[i].weather[0].icon,
+        }
+        createForecastElement(options);
     }
 
 
 }
 
-function createForecastElement(date, time, temp, feels_like, weatherDescription, icon) {
+function createForecastElement({ date, time, temp, feels_like, weatherDescription, icon }) {
     let forecastElement = document.createElement('div');
     forecastElement.classList.add("day-block");
     let linkOnImage = `http://openweathermap.org/img/wn/${icon}@2x.png`

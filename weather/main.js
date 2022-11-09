@@ -85,8 +85,26 @@ function fillDetailsTab(res, city) {
 
 function fillForecastTab(city) {
     const urlGeo = `${serverUrlGeo}?q=${city}&appid=${apiKey}&units=metric`
-    let responseGeo = fetch(urlGeo);
+
+    // ___a variant using await and async___
+    // 
+    // async function showAsync() {
+    //     try {
+    //         let responseGeo = await fetch(urlGeo);
+    //         let result = await responseGeo.json();
+    //         const url = `${serverUrlForecast}?lat=${result[0].lat}&lon=${result[0].lon}&appid=${apiKey}&units=metric`;
+    //         let response = await fetch(url);
+    //         let result_second = await response.json();
+    //         forecastProcessing(result_second.list);
+    //     } catch (err) {
+    //         alert(err);
+    //     }
+    // }
+    // showAsync();
+
     tabItem3.innerHTML = `<div class="city-tab3">${city}</div>`;
+
+    let responseGeo = fetch(urlGeo);
     responseGeo
         .then((response) => response.json())
         .then((result) => {
@@ -95,10 +113,11 @@ function fillForecastTab(city) {
             response
                 .then((response) => response.json())
                 .then((result) => {
-
                     forecastProcessing(result.list);
                 })
         })
+        .catch(alert);
+
 }
 
 function forecastProcessing(json) {

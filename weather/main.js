@@ -1,6 +1,7 @@
 import { INPUT, tabNow, locations, tabDetails, tabItem3 } from '/Strada/weather/view.js';
 
-let addedLocations = JSON.parse(localStorage.getItem("addedLocations"));
+
+let favoriteCities = new Set(JSON.parse(localStorage.getItem("favoriteCities")));
 const currentCity = localStorage.getItem("currentCity") || "Moscow";
 
 const apiKey = "111836d36d452866f627599b193d2401";
@@ -12,15 +13,14 @@ INPUT.addEventListener("keyup", sentName);
 getInfo(currentCity);
 tabNow.SHAPE.addEventListener("click", () => {
     let name = tabNow.CITY.textContent;
-    if (!addedLocations.includes(name)) {
-        addedLocations.push(name);
+    if (!favoriteCities.has(name)) {
+        favoriteCities.add(name);
         createCity(name);
-        localStorage.setItem("addedLocations", JSON.stringify(addedLocations));
-        console.log(addedLocations);
+        localStorage.setItem("favoriteCities", JSON.stringify([...favoriteCities]));
     }
 });
 
-addedLocations.forEach(locationName => {
+favoriteCities.forEach(locationName => {
     createCity(locationName);
 });
 
@@ -37,9 +37,9 @@ function createCity(locationName) {
 
 function deleteCity() {
     let name = this.closest("p").textContent;
-    addedLocations = addedLocations.filter(el => el !== name);
+    favoriteCities.delete(name);
     this.closest("p").remove();
-    localStorage.setItem("addedLocations", JSON.stringify(addedLocations));
+    localStorage.setItem("favoriteCities", JSON.stringify([...favoriteCities]));
 }
 
 

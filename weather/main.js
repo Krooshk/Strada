@@ -86,53 +86,38 @@ function fillDetailsTab(res, city) {
 function fillForecastTab(city) {
     const urlGeo = `${serverUrlGeo}?q=${city}&appid=${apiKey}&units=metric`
 
-    // ___a variant using await and async___
-    // 
-    // async function showAsync() {
-    //     try {
-    //         let responseGeo = await fetch(urlGeo);
-    //         let result = await responseGeo.json();
-    //         const url = `${serverUrlForecast}?lat=${result[0].lat}&lon=${result[0].lon}&appid=${apiKey}&units=metric`;
-    //         let response = await fetch(url);
-    //         let result_second = await response.json();
-    //         forecastProcessing(result_second.list);
-    //     } catch (err) {
-    //         alert(err);
-    //     }
-    // }
-    // showAsync();
+    async function showAsync() {
+        try {
+            let responseGeo = await fetch(urlGeo);
+            let result = await responseGeo.json();
+            const url = `${serverUrlForecast}?lat=${result[0].lat}&lon=${result[0].lon}&appid=${apiKey}&units=metric`;
+            let response = await fetch(url);
+            let result_second = await response.json();
+            forecastProcessing(result_second.list);
+        } catch (err) {
+            alert(err);
+        }
+    }
+    showAsync();
 
     tabItem3.innerHTML = `<div class="city-tab3">${city}</div>`;
 
-    let responseGeo = fetch(urlGeo);
-    responseGeo
-        .then((response) => response.json())
-        .then((result) => {
-            const url = `${serverUrlForecast}?lat=${result[0].lat}&lon=${result[0].lon}&appid=${apiKey}&units=metric`
-            let response = fetch(url);
-            response
-                .then((response) => response.json())
-                .then((result) => {
-                    forecastProcessing(result.list);
-                })
-        })
-        .catch(alert);
-
 }
 
-function forecastProcessing(json) {
-
-    for (let i = 0; i < 4; i++) {
-        let options = {
-            date: new Date((json[i].dt - 180 * 60) * 1000).getDate() + " " + new Date(json[i].dt * 1000).toLocaleString('en-US', { month: 'long' }),
-            time: json[i].dt_txt.substr(-8, 5),
-            temp: Math.round(json[i].main.temp),
-            feels_like: Math.round(json[i].main.feels_like),
-            weatherDescription: json[i].weather[0].main,
-            icon: json[i].weather[0].icon,
-        }
-        createForecastElement(options);
+function forecastProcessing(json, i = 0) {
+    if (i > 3) {
+        return
     }
+    let options = {
+        date: new Date((json[i].dt - 180 * 60) * 1000).getDate() + " " + new Date(json[i].dt * 1000).toLocaleString('en-US', { month: 'long' }),
+        time: json[i].dt_txt.substr(-8, 5),
+        temp: Math.round(json[i].main.temp),
+        feels_like: Math.round(json[i].main.feels_like),
+        weatherDescription: json[i].weather[0].main,
+        icon: json[i].weather[0].icon,
+    }
+    createForecastElement(options);
+    forecastProcessing(json, i + 1);
 
 
 }

@@ -69,16 +69,18 @@ function func(e) {
     }
 }
 
+function Task(name, priority) {
+    this.name = name;
+    this.status = default_status;
+    this.priority = priority;
+}
+
 
 function addTask() {
     let task = this.closest(".input-text");
     let textOfTask = task.children[0].value;
-
-    list.push({
-        name: textOfTask,
-        status: default_status,
-        priority: this.closest('form').previousElementSibling.textContent.toLowerCase(),
-    })
+    let priority = this.closest('form').previousElementSibling.textContent.toLowerCase();
+    list.push(new Task(textOfTask, priority));
     console.log(list);
 
     if (textOfTask.length > 0) {
